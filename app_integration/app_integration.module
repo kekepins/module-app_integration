@@ -29,6 +29,8 @@ function app_integration_block_info() {
 */
 
 function app_integration_block_view($delta = '') {
+  $content1 = variable_get('widget 1','content not available (widget 1)');
+  $content2 = variable_get('widget 2','content not available (widget 2)');
   $block = array();
   switch ($delta) {
     case 'app_integration_widget_1':
