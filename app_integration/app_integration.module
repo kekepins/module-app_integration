@@ -1,6 +1,30 @@
 <?php
 
-$widget1 = "Placeholder content for Widget 1";
+$widget1 = "
+
+    <script src='https://d3js.org/d3.v3.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600'>
+    <link rel='stylesheet' type='text/css' href='/sites/all/modules/app_integration/css/sequences.css'/>
+
+   <div id='main-vis'>
+     <h2>Main Div</h2>
+      <div id='sequence'></div>
+      <div id='chart'>
+        <div id='explanation' style='visibility: hidden;'>
+          <span id='percentage'></span><br/>
+          of visits begin with this sequence of pages
+        </div>
+      </div>
+    </div>
+    <div id='sidebar'>
+      <h2>Sidebar</h2>
+      <input type='checkbox' id='togglelegend'> Legend<br/>
+      <div id='legend' style='visibility: hidden;'></div>
+    </div>
+    <script type='text/javascript' src='/sites/all/modules/app_integration/js/sequences.js'></script>
+
+";
+
 $widget2 = "Placeholder content for Widget 2";
 
 variable_set('widget1', $widget1);
@@ -29,17 +53,17 @@ function app_integration_block_info() {
 */
 
 function app_integration_block_view($delta = '') {
-  $content1 = variable_get('widget 1','content not available (widget 1)');
-  $content2 = variable_get('widget 2','content not available (widget 2)');
+  $content1 = variable_get('widget1','content not available (widget 1)');
+  $content2 = variable_get('widget2','content not available (widget 2)');
   $block = array();
   switch ($delta) {
     case 'app_integration_widget_1':
       $block['title'] = t('App Integration Widget 1');
-      $block['content'] = "test 1";
+      $block['content'] = $content1;
       break;
     case 'app_integration_widget_2':
       $block['title'] = t('App Integration Widget 2');
-      $block['content'] = "test 2";
+      $block['content'] = $content2;
       break;
     }
   return $block;
