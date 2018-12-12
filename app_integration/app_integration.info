@@ -1,0 +1,6 @@
+name = App Integration Example
+description = An example module to demonstrate options for adding js based visualizations to wri.org (or any Drupal site). The module demonstrates how to embed a D3 based visualization as a Drupal node (page) and as a Drupal block (page element). All of the processing takes place in the module and then packages up the output as a node (page) and also as a block (page element). 
+version = 7.x-1-alpha
+core = 7.x  
+package = WRI Comms
+
