@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * First we're creating two versions of the app as "widgets". The first one 
+ * is an html structure, and the second one is an iframe version of the same. 
+*/
+
 $widget1 = "
 
     <script src='https://d3js.org/d3.v3.min.js'></script>
@@ -72,3 +77,37 @@ function app_integration_block_view($delta = '') {
     }
   return $block;
 }
+
+
+/**
+* This is where we create a page within the CMS (a Drupal Node) 
+*/
+
+/**
+* Implements hook_menu().
+ */
+
+function app_integration_menu() {
+  $items['app-integration/example-page'] = array(
+    'title' => 'App Integration Module: Example Page',
+    'page callback' => 'app_integration_custom',
+    'access arguments' => array('access content'),
+    'menu_name' => 'main-menu'
+  );
+ 
+  return $items;
+}
+
+/**
+* Custom callback function.
+ */
+
+function app_integration_custom() {
+  $content['raw_markup'] = array(
+    '#type' => 'markup',
+    '#markup' => '<p>Our js output (well, just text at the moment, but you get the idea)</p>',
+  );
+ 
+  return $content;
+}
+
